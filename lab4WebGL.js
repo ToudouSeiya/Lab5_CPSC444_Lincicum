@@ -236,7 +236,8 @@ function render()
     let z = Math.sin(theta * 0.02);
     gl.uniform3fv(
         lightDirectionLoc,
-        flatten(vec3(x, 1.0, z))
+        //flatten(vec3(x, 1.0, z))
+        flatten(vec3(1, 1, 1))
     );
 
     //directional light color
@@ -246,7 +247,7 @@ function render()
     gl.uniform3fv(
     lightColorLoc,
     //flatten(vec3(r,g,b))
-    flatten(vec3(1, 1, 1))
+    flatten(vec3(0, 0, 1))
     );
 
     gl.drawArrays(
