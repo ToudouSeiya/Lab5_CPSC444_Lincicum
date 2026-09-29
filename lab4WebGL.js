@@ -245,7 +245,8 @@ function render()
     let b = Math.abs(Math.sin(theta * 0.04));
     gl.uniform3fv(
     lightColorLoc,
-    flatten(vec3(r,g,b))
+    //flatten(vec3(r,g,b))
+    flatten(vec3(1, 1, 1))
     );
 
     gl.drawArrays(
