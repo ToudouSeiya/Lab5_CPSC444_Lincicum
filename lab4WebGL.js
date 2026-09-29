@@ -14,6 +14,7 @@ let theta = 0;
 let modelViewLoc;
 let projectionLoc;
 let lightDirectionLoc;
+let lightColorLoc;
 
 // Cube vertices
 const vertices = [
@@ -175,6 +176,12 @@ window.onload = async function()
             "lightDirection"
         );
 
+    lightColorLoc =
+        gl.getUniformLocation(
+        program,
+        "lightColor"
+);
+
     render();
 };
 
@@ -213,10 +220,21 @@ function render()
         flatten(projection)
     );
 
-    //ambient light location
+    //directional light location
+    let x = Math.cos(theta * 0.02);
+    let z = Math.sin(theta * 0.02);
     gl.uniform3fv(
         lightDirectionLoc,
-        flatten(vec3(1.0, 1.0, 1.0))
+        flatten(vec3(x, 1.0, z))
+    );
+
+    //directional light color
+    let r = Math.abs(Math.sin(theta * 0.02));
+    let g = Math.abs(Math.sin(theta * 0.03));
+    let b = Math.abs(Math.sin(theta * 0.04));
+    gl.uniform3fv(
+    lightColorLoc,
+    flatten(vec3(r,g,b))
     );
 
     gl.drawArrays(
