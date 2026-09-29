@@ -247,7 +247,7 @@ function render()
     gl.uniform3fv(
     lightColorLoc,
     //flatten(vec3(r,g,b))
-    flatten(vec3(0, 0, 1))
+    flatten(vec3(0, 1, 0))
     );
 
     gl.drawArrays(
