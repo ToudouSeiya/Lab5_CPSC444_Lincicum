@@ -1,3 +1,6 @@
+//Morgan Lincicum
+//CPSC444 Lab 5
+
 "use strict";
 
 let gl;
@@ -210,6 +213,7 @@ function render()
         flatten(projection)
     );
 
+    //ambient light location
     gl.uniform3fv(
         lightDirectionLoc,
         flatten(vec3(1.0, 1.0, 1.0))

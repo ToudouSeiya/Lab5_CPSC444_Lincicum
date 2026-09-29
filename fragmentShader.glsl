@@ -1,5 +1,8 @@
 #version 300 es
 
+//Morgan Lincicum
+// Lab 5
+
 precision mediump float;
 
 in vec3 vNormal;
@@ -15,7 +18,7 @@ void main()
     float diffuse =
         max(dot(N, normalize(lightDirection)), 0.0);
 
-    vec3 ambient = vec3(0.2);
+    vec3 ambient = vec3(0.3);
 
     vec3 color =
         ambient +
