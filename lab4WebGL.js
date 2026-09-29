@@ -15,6 +15,7 @@ let modelViewLoc;
 let projectionLoc;
 let lightDirectionLoc;
 let lightColorLoc;
+let ambientStrengthLoc;
 
 // Cube vertices
 const vertices = [
@@ -179,8 +180,12 @@ window.onload = async function()
     lightColorLoc =
         gl.getUniformLocation(
         program,
-        "lightColor"
-);
+        "lightColor");
+        
+    ambientStrengthLoc =
+        gl.getUniformLocation(
+        program,
+        "theta");
 
     render();
 };
@@ -193,6 +198,12 @@ function render()
     );
 
     theta += 1.0;
+
+    gl.uniform1f(
+        ambientStrengthLoc,
+        theta / 500
+    );
+
 
     let modelView =
         mult(
